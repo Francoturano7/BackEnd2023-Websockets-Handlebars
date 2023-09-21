@@ -1,0 +1,90 @@
+[
+  {
+    "title": "product1",
+    "description": "description1",
+    "code": "code1",
+    "price": 10,
+    "stock": 10,
+    "category": "category10",
+    "thumbnails": "https://www.supercoloring.com/sites/default/files/styles/drawing_full/public/fif/2017/09/black-football-shirt-number-1-template-paper-craft.jpg",
+    "id": "91dbfbd8-a771-4b17-b2f5-30a0798ff5d5",
+    "status": true
+  },
+  {
+    "title": "product2",
+    "description": "description2",
+    "code": "code2",
+    "price": 20,
+    "stock": 20,
+    "category": "category2",
+    "thumbnails": "https://www.supercoloring.com/sites/default/files/styles/drawing_full/public/fif/2017/09/black-football-shirt-number-2-template-paper-craft.jpg",
+    "id": "48ee0c43-ddc0-4692-9c04-6bd08f87abac",
+    "status": true
+  },
+  {
+    "title": "product3",
+    "description": "description3",
+    "code": "code3",
+    "price": 30,
+    "stock": 30,
+    "category": "category3",
+    "thumbnails": "https://www.supercoloring.com/sites/default/files/styles/drawing_full/public/fif/2017/09/black-football-shirt-number-3-template-paper-craft.jpg",
+    "id": "844f1377-1661-46e6-8bd0-fc3b611369ab",
+    "status": true
+  },
+  {
+    "title": "product4",
+    "description": "description4",
+    "code": "code4",
+    "price": 40,
+    "stock": 40,
+    "category": "category4",
+    "thumbnails": "https://www.supercoloring.com/sites/default/files/styles/drawing_full/public/fif/2017/09/black-football-shirt-number-4-template-paper-craft.jpg",
+    "id": "06f6006a-a87d-48e9-b426-a5a1bef44967",
+    "status": true
+  },
+  {
+    "title": "product5",
+    "description": "description5",
+    "code": "code5",
+    "price": 50,
+    "stock": 50,
+    "category": "category5",
+    "thumbnails": "https://www.supercoloring.com/sites/default/files/styles/drawing_full/public/fif/2017/09/black-football-shirt-number-5-template-paper-craft.jpg",
+    "id": "6e726581-ff7b-40ab-a50c-ae1e11a85585",
+    "status": true
+  },
+  {
+    "title": "product6",
+    "description": "description6",
+    "code": "code6",
+    "price": 60,
+    "stock": 60,
+    "category": "category6",
+    "thumbnails": "https://www.supercoloring.com/sites/default/files/styles/drawing_full/public/fif/2017/09/black-football-shirt-number-6-template-paper-craft.jpg",
+    "id": "b8ae6b78-576a-4afa-97cd-80d5153d2a5b",
+    "status": true
+  },
+  {
+    "title": "product7",
+    "description": "description7",
+    "code": "code7",
+    "price": 70,
+    "stock": 70,
+    "category": "category7",
+    "thumbnails": "https://www.supercoloring.com/sites/default/files/styles/drawing_full/public/fif/2017/09/black-football-shirt-number-7-template-paper-craft.jpg",
+    "id": "591146bb-4168-45ab-abd0-2e9420eb3597",
+    "status": true
+  },
+  {
+    "title": "product8",
+    "description": "description8",
+    "code": "code8",
+    "price": 80,
+    "stock": 80,
+    "category": "category8",
+    "thumbnails": "https://www.supercoloring.com/sites/default/files/styles/drawing_full/public/fif/2017/09/black-football-shirt-number-8-template-paper-craft.jpg",
+    "id": "cd9c8dc8-076e-41eb-99b7-7b0e0734aa92",
+    "status": true
+  }
+]

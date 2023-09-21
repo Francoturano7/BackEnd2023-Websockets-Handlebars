@@ -1,0 +1,65 @@
+<div class="container">
+    <h1 style="text-align: center; color:darkred; border:3px solid black" class="mt-2 mb-3 mx-5">Lista de Productos con Socket</h1>
+    <h2 style="text-align: center; color:white; background-color: darkred" class="pb-2 pt-1 mx-5">Agregar un Producto</h2>
+    <div style="position: relative; border: 5px solid rgb(139, 0, 0); width: 90%; left: 5%; border-radius: 10px ;padding: 30px 0 50px; margin: 30px 0px 60px 0px;">
+        <form id="formProducts" action="/realtimeproducts" method="POST">
+            <div class="mx-2 mb-4">
+                <input type="text" class="form-control" id="title" placeholder="Nombre del producto.." aria-describedby="emailHelp">
+            </div>
+            <div class="mx-2 mb-4">
+                <input type="text" class="form-control" id="description" placeholder="Descripción:">
+            </div>
+            <div class="mx-2 mb-4">
+                <input type="number" class="form-control  " id="price" placeholder="Precio">
+            </div>
+            <div class="mx-2 mb-4">
+                <input type="text" class="form-control  " id="category" placeholder="Categoria">
+            </div>
+            <div class="mx-2 mb-4">
+                <input type="text" class="form-control" id="thumbnails" placeholder="link  image: https://... ">
+            </div>
+            <div class="mx-2 mb-4">
+                <input type="text" class="form-control" id="code" placeholder="Código">
+            </div>
+            <div class="mx-2 mb-4">
+                <input type="number" class="form-control" id="stock" placeholder="Stock">
+            </div>
+            <button style=" background-color: darkred; color: white" type="submit"
+                class="btn  position-relative start-50 top-0 translate-middle-x mb-2" id="buttonForm">Submit</button>
+        </form>
+    </div>
+    <div >
+        <div>
+             <h1 style="text-align: center; color: darkred ;border:2px solid black;margin: 10px 0px 20px 0px;" class="mx-5" >Lista de Productos</h1>
+        </div>
+        <table class="table"  style="text-align: center;">
+            <thead class="mb-3" >
+                <tr  style=" color: darkred ;border:1px solid black" >
+                    <th style="border:1px solid black" scope="col">Nombre</th>
+                    <th style="border:1px solid black" scope="col">Descripcion</th>
+                    <th style="border:1px solid black" scope="col">Precio</th>
+                    <th style="border:1px solid black" scope="col">Stock</th>
+                    <th style="border:1px solid black" scope="col">Categoria</th>
+                    <th style="border:1px solid black" scope="col">Código</th>
+                    <th style="border:1px solid black" scope="col">Imagen</th>
+                </tr>
+            </thead>
+            <tbody id="listaProd">
+                {{#each data}}
+                <tr >
+                    <td class="text-uppercase" style="border:1px solid black" >{{title}}</td>
+                    <td style="border:1px solid black" >{{description}}</td>
+                    <td style="border:1px solid black" >${{price}}</td>
+                    <td style="border:1px solid black" >{{stock}}</td>
+                    <td style="border:1px solid black" >{{category}}</td>
+                    <td style="border:1px solid black" >{{code}}</td>
+                    <td style="border:1px solid black" ><img src={{thumbnails}} alt="" width="30px" /> </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/realTime.js"></script>
