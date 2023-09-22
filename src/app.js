@@ -1,65 +1,54 @@
 import express from "express"
-import { engine } from "express-handlebars";
 import { __dirname } from "./utils.js";
-import  path  from "path"
+import path from "path"
+import { engine } from "express-handlebars";
 import { Server } from "socket.io";
+import { productsService } from "./persistence/index.js";
+
 
 import { viewsRouter } from "./routes/views.routes.js";
+import { productsRouter } from "./routes/products.routes.js";
+import { cartsRouter } from "./routes/carts.routes.js"
 
 const port=8080
 const app=express()
 
-const httpServer = app.listen(port,()=>{console.log("Server ok")})
+app.use(express.static(path.join(__dirname,"public")))
 
-const socketsServer= new Server(httpServer)
+const httpServer= app.listen(port,()=>console.log(`Servidor corriendo en el puerto ${port}`))
 
+//servidor de websocket
+const io=new Server(httpServer)
 
-app.use(express.static(path.join(__dirname,"/public")))
-
-
+//configuracion de handlebars
 app.engine(".hbs",engine({extname:".hbs"}))
 app.set("view engine",".hbs")
 app.set("views",path.join(__dirname,"/views"))
 
 
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
+//Routes
 app.use(viewsRouter)
+app.use("/api/products",productsRouter)
+app.use("/api/carts",cartsRouter)
 
-let msgHistory=[]
+//socket server
+io.on("connection",async(socket)=>{
+    console.log("Cliente conectado")
+    // const products=await productsService.getProducts()
+    // socket.emit("productsArray",products)
 
-socketsServer.on("connection",(socket)=>{
-    console.log("Cliente conectado", socket.id)
-    socket.on("clientMessage",(data)=>{
-        console.log("Data desde el cliente: ",data)
-    })
-
-    setTimeout(() => {
-        socket.emit("msgServer","canal abierto")
-    },4000);
-
-    // setTimeout(() => {
-    //     socketsServer.emit("msgAllFromServer","nueva promocion")
-    // },8000);
-
-    // setTimeout(() => {
-    //     socket.broadcast.emit("msgAllNoXMe","nuevo usuario conectado")
-    // },8000);
-
-    // socket.on("msgKey",(data)=>{
-    //     console.log("Tecla desde el cliente: ",
-    //     data)
+    // //recibir el producto del socket del cliente
+    // socket.on("addProduct",async(productData)=>{
+    //  const result=   await productsService.addProduct(productData)
+    //  io.emit("productsArray",await productsService.getProducts())
     // })
-
-    socket.on("msgInput",(data)=>{
-        const msgItem={
-            socketid: socket.id,
-            mensaje:data
-        }
-        msgHistory.push(msgItem)
-      //  console.log("msgItem: ",msgItem)
+    socket.on('addProduct', async (data) => {
+        const added = await productsService.addProduct(data)
+        io.sockets.emit('allProducts', await productsService.getProducts())
     })
-
-    socket.emit("messages",msgHistory)
 
 })
-
-

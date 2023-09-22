@@ -1,6 +1,8 @@
-<h1 class="title">Pagina Home</h1>
+<h1 class="mx-5 text-uppercase" style="text-align: center ; color:darkred; border:3px solid black " >Pagina de home</h1>
 
-<input type="text" id="inputField">
-
-<script src="/socket.io/socket.io.js"></script>
-<script src="/js/home.js"></script>
+{{#each products}}
+<div class="mx-5 mb-3 rounded" style="text-align: center; color:darkred; border:4px solid rgb(139, 0, 0)"  >
+   <h1>Nombre del producto: <p style="color: black;" class="text-uppercase">{{this.title}}</p> </h1> 
+<img class="ms-1 me-1 mt-1 mb-1  "   src="{{this.thumbnails}}" alt="imagen-{{this.title}}" width="5%">
+</div>
+{{/each}}
