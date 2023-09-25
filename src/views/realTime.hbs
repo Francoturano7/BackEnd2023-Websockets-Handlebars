@@ -4,25 +4,25 @@
     <div style="position: relative; border: 5px solid rgb(139, 0, 0); width: 90%; left: 5%; border-radius: 10px ;padding: 30px 0 50px; margin: 30px 0px 60px 0px;">
         <form id="formProducts" action="/realtimeproducts" method="POST">
             <div class="mx-2 mb-4">
-                <input type="text" class="form-control" id="title" placeholder="Nombre del producto.." aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="title" placeholder="Nombre del producto.." aria-describedby="emailHelp"  required >
             </div>
             <div class="mx-2 mb-4">
-                <input type="text" class="form-control" id="description" placeholder="Descripción:">
+                <input type="text" class="form-control" id="description" placeholder="Descripción:" required >
             </div>
             <div class="mx-2 mb-4">
-                <input type="number" class="form-control  " id="price" placeholder="Precio">
+                <input type="number" class="form-control  " id="price" placeholder="Precio" required >
             </div>
             <div class="mx-2 mb-4">
-                <input type="text" class="form-control  " id="category" placeholder="Categoria">
+                <input type="text" class="form-control  " id="category" placeholder="Categoria" required >
             </div>
             <div class="mx-2 mb-4">
-                <input type="text" class="form-control" id="thumbnails" placeholder="link  image: https://... ">
+                <input type="text" class="form-control" id="thumbnails" placeholder="link  image: https://... " required >
             </div>
             <div class="mx-2 mb-4">
-                <input type="text" class="form-control" id="code" placeholder="Código">
+                <input type="text" class="form-control" id="code" placeholder="Código" required >
             </div>
             <div class="mx-2 mb-4">
-                <input type="number" class="form-control" id="stock" placeholder="Stock">
+                <input type="number" class="form-control" id="stock" placeholder="Stock" required >
             </div>
             <button style=" background-color: darkred; color: white" type="submit"
                 class="btn  position-relative start-50 top-0 translate-middle-x mb-2" id="buttonForm">Submit</button>
@@ -44,16 +44,16 @@
                     <th style="border:1px solid black" scope="col">Imagen</th>
                 </tr>
             </thead>
-            <tbody id="listaProd">
+            <tbody id="listaProd" class="text-uppercase ">
                 {{#each data}}
                 <tr >
-                    <td class="text-uppercase" style="border:1px solid black" >{{title}}</td>
-                    <td style="border:1px solid black" >{{description}}</td>
-                    <td style="border:1px solid black" >${{price}}</td>
-                    <td style="border:1px solid black" >{{stock}}</td>
-                    <td style="border:1px solid black" >{{category}}</td>
-                    <td style="border:1px solid black" >{{code}}</td>
-                    <td style="border:1px solid black" ><img src={{thumbnails}} alt="" width="30px" /> </td>
+                    <td class="text-uppercase row" style="border:1px solid black" >{{this.title}}</td>
+                    <td style="border:1px solid black" >{{this.description}}</td>
+                    <td style="border:1px solid black" >${{this.price}}</td>
+                    <td style="border:1px solid black" >{{this.stock}}</td>
+                    <td style="border:1px solid black" >{{this.category}}</td>
+                    <td style="border:1px solid black" >{{this.code}}</td>
+                    <td style="border:1px solid black" ><img src={{this.thumbnails}} alt="" width="30px" /> </td>
                 </tr>
                 {{/each}}
             </tbody>

@@ -78,7 +78,7 @@ socket.on('allProducts', async (data) => {
 formProduct.addEventListener('submit', e => {
     e.preventDefault();
 
-    socket.emit('addProduct', {
+    socket.emit('addProduct',{
         title: title.value,
         description: description.value,
         code: code.value,
